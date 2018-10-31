@@ -2,7 +2,7 @@ import createClass from "create-react-class"
 import * as mobx from "mobx"
 import React, { Component } from "react"
 import TestUtils from "react-dom/test-utils"
-import { inject, observer, Observer, onError, Provider, useStaticRendering } from "../src"
+import { inject, observer, Observer, onError, Provider, renderStatically } from "../src"
 import { asyncReactDOMRender, createTestRoot, sleepHelper, withAsyncConsole, withConsole } from "./"
 
 /**
@@ -60,7 +60,7 @@ describe("nestedRendering", async () => {
     )
     beforeAll(async done => {
         // the side-effect in  does not views alive when using static rendering test suite
-        useStaticRendering(false)
+        renderStatically(false)
         await asyncReactDOMRender(<TodoList />, testRoot)
         done()
     })
@@ -120,7 +120,7 @@ describe("isObjectShallowModified detects when React will update the component",
     })
 
     beforeAll(done => {
-        useStaticRendering(false)
+        renderStatically(false)
         done()
     })
 
@@ -165,7 +165,7 @@ describe("keep views alive", () => {
 })
 
 describe("does not views alive when using static rendering", () => {
-    useStaticRendering(true)
+    renderStatically(true)
     let renderCount = 0
     const data = mobx.observable({
         z: "hi"
@@ -178,7 +178,7 @@ describe("does not views alive when using static rendering", () => {
     const element = TestUtils.renderIntoDocument(<TestComponent />)
 
     afterAll(() => {
-        useStaticRendering(false)
+        renderStatically(false)
     })
 
     test("init state is correct", () => {

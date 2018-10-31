@@ -262,7 +262,7 @@ For more details, see [#136](https://github.com/mobxjs/mobx-react/pull/136) by @
 
 #### Better support for Server Side Rendering
 
-Introduced `useStaticRendering(boolean)` to better support server-side rendering scenarios. See [#140](https://github.com/mobxjs/mobx-react/issues/140)
+Introduced `renderStatically(boolean)` to better support server-side rendering scenarios. See [#140](https://github.com/mobxjs/mobx-react/issues/140)
 
 #### Introduced `Observer` as alternative syntax to the `observer` decorator.
 

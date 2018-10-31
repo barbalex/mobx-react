@@ -77,8 +77,8 @@ export function trackComponents() {
     if (!isDevtoolsEnabled) isDevtoolsEnabled = true
 }
 
-export function useStaticRendering(useStaticRendering) {
-    isUsingStaticRendering = useStaticRendering
+export function renderStatically(renderStatically) {
+    isUsingStaticRendering = renderStatically
 }
 
 /**
